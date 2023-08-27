@@ -1,12 +1,29 @@
+let paintapp 
+let typeracer
+function preload(){
+  paintapp = createA('adithya1812.github.io/p5js-paint-app','adithya1812.github.io/p5js-paint-app')
+  typeracer = createA('adithya1812.github.io/p5js-typeracer','adithya1812.github.io/p5js-typeracer')
+}
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-  background('#E1E0DD');
-  fill('#1B263B');
+  background('#1b263b');
+  fill('#E1E0DD');
   textSize(48);
   textAlign(CENTER);
   textFont('Maven Pro');
-  text("Adithya's website",width/2,50)
+  text("Adithya's website",width/2,50);
+  textAlign(LEFT);
+  textSize(15);
+  textFont('Roboto Mono');
+  fill('#778DA9');
+  text('My projects:',25,150);
+  text('Paint app - ',25,175);
+  paintapp.position(135,160);
+  paintapp.style('color','#E1E0DD');
+  text('Typeracer - ',25,200);
+  typeracer.position(135,185);
+  typeracer.style('color','#E1E0DD');
 }
