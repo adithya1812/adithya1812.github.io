@@ -1,8 +1,8 @@
 let paintapp 
 let typeracer
 function preload(){
-  paintapp = createA('adithya1812.github.io/p5js-paint-app','adithya1812.github.io/p5js-paint-app')
-  typeracer = createA('adithya1812.github.io/p5js-typeracer','adithya1812.github.io/p5js-typeracer')
+  paintapp = createA('p5js-paint-app','adithya1812.github.io/p5js-paint-app')
+  typeracer = createA('p5js-typeracer','adithya1812.github.io/p5js-typeracer')
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
