@@ -1,8 +1,9 @@
 let paintapp 
 let typeracer
 function preload(){
-  paintapp = createA('p5js-paint-app','adithya1812.github.io/p5js-paint-app')
-  typeracer = createA('p5js-typeracer','adithya1812.github.io/p5js-typeracer')
+  paintapp = createA('adithya1812.github.io/p5js-paint-app','adithya1812.github.io/p5js-paint-app')
+  typeracer = createA('adithya1812.github.io/p5js-typeracer','adithya1812.github.io/p5js-typeracer')
+  survey = createA('adithya1812.github.io/adithya-survey-form','adithya1812.github.io/adithya-survey-form')
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -26,4 +27,7 @@ function draw() {
   text('Typeracer - ',25,200);
   typeracer.position(135,185);
   typeracer.style('color','#E1E0DD');
+  text('Survey form - ',25,225)
+  survey.position(150,210)
+  survey.style('color','#E1E0DD')
 }
