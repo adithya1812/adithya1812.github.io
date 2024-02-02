@@ -4,16 +4,16 @@ let paintapp;
 let typeracer;
 function preload() {
   paintapp = createA(
-    "adithya1812.github.io/p5js-paint-app",
-    "p5js-paint-app"
+    "p5js-paint-app",
+    "adithya1812.github.io/p5js-paint-app"
   );
   typeracer = createA(
-    "adithya1812.github.io/p5js-typeracer",
-    "p5js-typeracer"
+    "p5js-typeracer",
+    "adithya1812.github.io/p5js-typeracer"
   );
   survey = createA(
-    "adithya1812.github.io/adithya-survey-form",
-    "adithya-survey-form"
+    "adithya-survey-form",
+    "adithya1812.github.io/adithya-survey-form"
   );
 }
 class particles {
