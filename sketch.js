@@ -2,6 +2,7 @@ let allowed = 80;
 let tot = 0;
 let paintapp;
 let typeracer;
+let minesweeper;
 function preload() {
   paintapp = createA(
     "p5js-paint-app",
@@ -14,6 +15,10 @@ function preload() {
   survey = createA(
     "adithya-survey-form",
     "adithya1812.github.io/adithya-survey-form"
+  );
+  minesweeper = createA(
+    "minesweeper",
+    "adithya1812.github.io/minesweeper"
   );
 }
 class particles {
@@ -79,7 +84,7 @@ function draw() {
   rect(0, 0, 10, height);
   //console.log(par.length);
   //console.log(tot);
-  velo = createVector(-1 * (mouseX - width / 2), -1 * (mouseY - height / 2));
+  velo = createVector(-1 * (mouseX - width/2), -1 * (mouseY - height/2));
   for (let i = 0; i < par.length; i++) {
     par[i].display();
     par[i].move();
@@ -120,4 +125,7 @@ function draw() {
   text("Survey form - ", 25, 225);
   survey.position(150, 210);
   survey.style("color", "#E1E0DD");
+  text("Minesweeper -", 25, 250);
+  minesweeper.position(150, 235);
+  minesweeper.style("color", "#E1E0DD");
 }
