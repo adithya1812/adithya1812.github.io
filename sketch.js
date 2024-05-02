@@ -1,24 +1,29 @@
 let allowed = 80;
 let tot = 0;
-let paintapp;
+let paintApp;
 let typeracer;
 let minesweeper;
+let wallpaperApp;
 function preload() {
-  paintapp = createA(
+  paintApp = createA(
     "p5js-paint-app",
-    "adithya1812.github.io/p5js-paint-app"
+    "adithya1812.github.io/p5js-paint-app/"
   );
   typeracer = createA(
     "p5js-typeracer",
-    "adithya1812.github.io/p5js-typeracer"
+    "adithya1812.github.io/p5js-typeracer/"
   );
   survey = createA(
     "adithya-survey-form",
-    "adithya1812.github.io/adithya-survey-form"
+    "adithya1812.github.io/adithya-survey-form/"
   );
   minesweeper = createA(
     "minesweeper",
-    "adithya1812.github.io/minesweeper"
+    "adithya1812.github.io/minesweeper/"
+  );
+  wallpaperApp = createA(
+    "wallpaper-app",
+    "adithya1812.github.io/wallpaper-app/"
   );
 }
 class particles {
@@ -117,8 +122,8 @@ function draw() {
   fill("#778DA9");
   text("My projects:", 25, 150);
   text("Paint app - ", 25, 175);
-  paintapp.position(135, 160);
-  paintapp.style("color", "#E1E0DD");
+  paintApp.position(135, 160);
+  paintApp.style("color", "#E1E0DD");
   text("Typeracer - ", 25, 200);
   typeracer.position(135, 185);
   typeracer.style("color", "#E1E0DD");
@@ -128,4 +133,7 @@ function draw() {
   text("Minesweeper -", 25, 250);
   minesweeper.position(150, 235);
   minesweeper.style("color", "#E1E0DD");
+  text("Wallpaper app -", 25, 275);
+  wallpaperApp.position(160, 260);
+  wallpaperApp.style("color", "#E1E0DD");
 }
