@@ -134,6 +134,6 @@ function draw() {
   minesweeper.position(150, 235);
   minesweeper.style("color", "#E1E0DD");
   text("Wallpaper app -", 25, 275);
-  wallpaperApp.position(160, 260);
+  wallpaperApp.position(175, 260);
   wallpaperApp.style("color", "#E1E0DD");
 }
