@@ -1,11 +1,14 @@
 let allowed = 80;
 let tot = 0;
-let paintApp;
+let paintapp;
 let typeracer;
 let minesweeper;
 let wallpaperApp;
+let stars = [];
+let speedX, speedY, finalSpeed;
+
 function preload() {
-  paintApp = createA(
+  paintapp = createA(
     "p5js-paint-app",
     "adithya1812.github.io/p5js-paint-app/"
   );
@@ -26,114 +29,81 @@ function preload() {
     "adithya1812.github.io/wallpaper-app/"
   );
 }
-class particles {
-  constructor(x, y, size) {
-    this.x = x;
-    this.y = y;
-    this.pos = createVector(x, y);
-    this.size = size;
-    this.flag = true;
-    this.ran = random(2, -2);
-    tot++;
-  }
 
-  display() {
-    fill(255);
-    noStroke();
-    if (this.flag) {
-      circle(this.x, this.y, this.size);
-    }
-  }
-
-  move() {
-    this.x += ((velo.x + this.ran) * this.size) / 100;
-    this.y += ((velo.y + this.ran) * this.size) / 100;
-  }
-
-  update() {
-    if (this.flag) {
-      if (
-        this.x < 0 - 50 ||
-        this.x > width + 50 ||
-        this.y < 0 - 50 ||
-        this.y > height + 50
-      ) {
-        tot--;
-        this.flag = false;
-        if (par.length > allowed * 5) {
-          par.shift();
-        }
-      }
-    } else {
-      if (this.x >= 0 && this.y >= 0 && this.x <= width && this.y <= height) {
-        tot++;
-        this.flag = true;
-      }
-    }
-  }
-}
-
-let par = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  for (let i = 0; i < allowed; i++) {
-    par.push(new particles(random(0, width), random(0, height), random(1, 10)));
+  for (let i = 0; i < windowWidth; i++) {
+    stars[i] = new Star();
   }
 }
-let VX, VY;
 
 function draw() {
-  background("black");
-  fill(0);
-  rect(0, 0, width, 10);
-  rect(0, 0, 10, height);
-  //console.log(par.length);
-  //console.log(tot);
-  velo = createVector(-1 * (mouseX - width/2), -1 * (mouseY - height/2));
-  for (let i = 0; i < par.length; i++) {
-    par[i].display();
-    par[i].move();
-    par[i].update();
+  background(0);
+  speedX = map(mouseX, 0, width, 0, 35);
+  speedY = map(mouseY, 0, height, 0, 35);
+  finalSpeed = sqrt(speedX * speedX + speedY * speedY);
+  translate(width / 2, height / 2);
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].update();
+    stars[i].show();
   }
-  if (tot <= allowed) {
-    par.push(
-      new particles(
-        random(width, 0),
-        (mouseY >= height / 2) * (height + 100),
-        random(1, 10)
-      )
-    );
-    par.push(
-      new particles(
-        (mouseX > width / 2) * (width + 100),
-        random(height, 0),
-        random(1, 10)
-      )
-    );
-  }
+  noStroke();
   fill("#E1E0DD");
   textSize(48);
   textAlign(CENTER);
   textFont("Maven Pro");
-  text("Adithya's website", width / 2, 50);
+  text("Adithya's website", 0, 50 - height / 2);
   textAlign(LEFT);
   textSize(15);
   textFont("Roboto Mono");
   fill("#778DA9");
-  text("My projects:", 25, 150);
-  text("Paint app - ", 25, 175);
-  paintApp.position(135, 160);
-  paintApp.style("color", "#E1E0DD");
-  text("Typeracer - ", 25, 200);
+  text("My projects:", 25 - width / 2, 150 - height / 2);
+  text("Paint app - ", 25 - width / 2, 175 - height / 2);
+  paintapp.position(135, 160);
+  paintapp.style("color", "#E1E0DD");
+  text("Typeracer - ", 25 - width / 2, 200 - height / 2);
   typeracer.position(135, 185);
   typeracer.style("color", "#E1E0DD");
-  text("Survey form - ", 25, 225);
+  text("Survey form - ", 25 - width / 2, 225 - height / 2);
   survey.position(150, 210);
   survey.style("color", "#E1E0DD");
-  text("Minesweeper -", 25, 250);
+  text("Minesweeper -", 25 - width / 2, 250 - height / 2);
   minesweeper.position(150, 235);
   minesweeper.style("color", "#E1E0DD");
-  text("Wallpaper app -", 25, 275);
-  wallpaperApp.position(175, 260);
+  text("Wallpaper App -", 25 - width / 2, 275 - height / 2);
+  wallpaperApp.position(170, 260);
   wallpaperApp.style("color", "#E1E0DD");
+}
+
+class Star {
+  constructor() {
+    this.x = random(-width, width);
+    this.y = random(-height, height);
+    this.z = random(width);
+    this.pz = this.z;
+    this.size = random(5, 20);
+  }
+  update() {
+    this.z = this.z - finalSpeed;
+    if (this.z < 1) {
+      this.z = width;
+      this.x = random(-width, width);
+      this.y = random(-height, height);
+      this.pz = this.z;
+    }
+  }
+
+  show() {
+    fill(255);
+    noStroke();
+    var sx = map(this.x / this.z, 0, 1, 0, width);
+    var sy = map(this.y / this.z, 0, 1, 0, height);
+    var r = map(this.z, 0, width, this.size, 0);
+    var px = map(this.x / this.pz, 0, 1, 0, width);
+    var py = map(this.y / this.pz, 0, 1, 0, height);
+    this.pz = this.z;
+    stroke(255);
+    strokeWeight(r);
+    line(px, py, sx, sy);
+  }
 }
