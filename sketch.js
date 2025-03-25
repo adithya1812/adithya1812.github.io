@@ -3,6 +3,7 @@ let typeracer;
 let minesweeper;
 let wallpaperApp;
 let fatSim;
+let vacuum;
 let stars = [];
 let scrollSpeedX, scrollSpeedY, scrollSpeed;
 let mouseSpeedX, mouseSpeedY;
@@ -38,6 +39,10 @@ function preload() {
     "fat-interactive-simulations",
     "adithya1812.github.io/fat-interactive-simulations/"
   );
+  vacuum = createA(
+    "robot-vacuum",
+    "adithya1812.github.io/robot-vacuum/"
+  )
 }
 
 function setup() {
@@ -117,6 +122,9 @@ function draw() {
   text("Fat Interactive Simulations -", 25, 300);
   fatSim.position(300, 285);
   fatSim.style("color", "#E1E0DD");
+  text("Robot Vacuum Simulation -", 25, 325)
+  vacuum.position(260, 310)
+  vacuum.style("color", "#E1E0DD")
 }
 
 function mouseWheel(event) {
