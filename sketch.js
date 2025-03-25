@@ -89,7 +89,7 @@ function draw() {
     text(
       `Move, and scroll your mouse, or press the up and down arrows for a cool effect!`,
       10,
-      height / 2,
+      height / 2 + 100,
       width - 10
     );
   }
