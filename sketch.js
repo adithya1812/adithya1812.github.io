@@ -4,6 +4,7 @@ let minesweeper;
 let wallpaperApp;
 let fatSim;
 let vacuum;
+let fallingSim;
 let stars = [];
 let scrollSpeedX, scrollSpeedY, scrollSpeed;
 let mouseSpeedX, mouseSpeedY;
@@ -42,6 +43,10 @@ function preload() {
   vacuum = createA(
     "robot-vacuum",
     "adithya1812.github.io/robot-vacuum/"
+  )
+  fallingSim = createA(
+    "falling-elements-simulator",
+    "adithya1812.github.io/falling-elements-simulator/"
   )
 }
 
@@ -125,6 +130,9 @@ function draw() {
   text("Robot Vacuum Simulation -", 25, 325)
   vacuum.position(260, 310)
   vacuum.style("color", "#E1E0DD")
+  text("Falling Elements Simulator -", 25, 350)
+  fallingSim.position(290, 335)
+  fallingSim.style("color", "#E1E0DD")
 }
 
 function mouseWheel(event) {
